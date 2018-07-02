@@ -14,6 +14,8 @@
 		7A7DEF9420EA2D3A00EDD5C8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7A7DEF9220EA2D3A00EDD5C8 /* LaunchScreen.storyboard */; };
 		7A7DEF9F20EA2D3A00EDD5C8 /* SliderViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DEF9E20EA2D3A00EDD5C8 /* SliderViewTests.swift */; };
 		7A7DEFAA20EA2D3B00EDD5C8 /* SliderViewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DEFA920EA2D3B00EDD5C8 /* SliderViewUITests.swift */; };
+		7A7DEFB820EA2D6200EDD5C8 /* ZQSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DEFB720EA2D6200EDD5C8 /* ZQSliderView.swift */; };
+		7A7DEFBA20EA2E4500EDD5C8 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A7DEFB920EA2E4500EDD5C8 /* UIView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		7A7DEFA520EA2D3B00EDD5C8 /* SliderViewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SliderViewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7A7DEFA920EA2D3B00EDD5C8 /* SliderViewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderViewUITests.swift; sourceTree = "<group>"; };
 		7A7DEFAB20EA2D3B00EDD5C8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7A7DEFB720EA2D6200EDD5C8 /* ZQSliderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZQSliderView.swift; sourceTree = "<group>"; };
+		7A7DEFB920EA2E4500EDD5C8 /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +101,10 @@
 		7A7DEF8820EA2D3800EDD5C8 /* SliderView */ = {
 			isa = PBXGroup;
 			children = (
+				7A7DEFB920EA2E4500EDD5C8 /* UIView+Extension.swift */,
 				7A7DEF8920EA2D3800EDD5C8 /* AppDelegate.swift */,
 				7A7DEF8B20EA2D3800EDD5C8 /* ViewController.swift */,
+				7A7DEFB720EA2D6200EDD5C8 /* ZQSliderView.swift */,
 				7A7DEF8D20EA2D3800EDD5C8 /* Main.storyboard */,
 				7A7DEF9020EA2D3A00EDD5C8 /* Assets.xcassets */,
 				7A7DEF9220EA2D3A00EDD5C8 /* LaunchScreen.storyboard */,
@@ -258,6 +264,8 @@
 			files = (
 				7A7DEF8C20EA2D3800EDD5C8 /* ViewController.swift in Sources */,
 				7A7DEF8A20EA2D3800EDD5C8 /* AppDelegate.swift in Sources */,
+				7A7DEFBA20EA2E4500EDD5C8 /* UIView+Extension.swift in Sources */,
+				7A7DEFB820EA2D6200EDD5C8 /* ZQSliderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
