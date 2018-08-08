@@ -23,6 +23,8 @@ class ZQSliderView: UIView {
     
     var currentIndex = IndexPath.init(item: 0, section: 0)
     var preIndex: IndexPath?
+    var position: CGPoint?
+    
     
     let duration = 0.3
     let itemWidth: CGFloat = 65
@@ -59,17 +61,21 @@ class ZQSliderView: UIView {
         titleView.backgroundColor = UIColor.white
         titleView.dataSource = self
         titleView.delegate = self
-        titleView.register(SliderCell.classForCoder(), forCellWithReuseIdentifier: "sdcell")
+        
+        for i in 0..<titles.count {
+            titleView.register(SliderCell.classForCoder(), forCellWithReuseIdentifier: "cell")
+        }
+        
         
         line = UIView(frame: CGRect(x: 0, y: titleView.bottom-1, width: 20, height: 1))
         titleView.addSubview(line)
         line.backgroundColor = lineColor
+        position = line.center
     }
     
     func moveLine(toIndex: IndexPath, completion: @escaping kCompletion) {
         
         line.layer.removeAllAnimations()
-        
         let cell1 = titleView.cellForItem(at: currentIndex) as? SliderCell
         let cell2 = titleView.cellForItem(at: toIndex) as? SliderCell
         
@@ -82,7 +88,7 @@ class ZQSliderView: UIView {
         animation1.duration = duration
         
         let animation2 = CABasicAnimation.init(keyPath: "position")
-        animation2.fromValue = CGPoint(x: cell1!.centerX, y: line.centerY)
+        animation2.fromValue = position!//CGPoint(x: cell1!.centerX, y: line.centerY)
         animation2.toValue = CGPoint(x: cell2!.centerX, y: line.centerY)
         animation2.duration = duration
         animation2.repeatCount = 1
@@ -101,10 +107,14 @@ class ZQSliderView: UIView {
         animationArray.append(completion)
         
         
-        cell2!.textLabel.textColor = UIColor.red
-        cell1!.textLabel.textColor = UIColor.rgba(red: 51, green: 51, blue: 51, alpha: 1)
+        cell2?.textLabel.textColor = UIColor.red
+        cell1?.textLabel.textColor = UIColor.rgba(red: 51, green: 51, blue: 51, alpha: 1)
         self.preIndex = self.currentIndex
         self.currentIndex = toIndex
+        position = CGPoint(x: cell2!.centerX, y: line.centerY);
+        
+        titleView.reloadItems(at: [self.preIndex!, self.currentIndex])
+
 //        titleView.scrollToItem(at: toIndex, at: .centeredHorizontally, animated: true)
     }
     func moveLine(offsetX: CGFloat, stan: CGFloat, direction: Int)  {//left:-1, right:1
@@ -142,7 +152,8 @@ extension ZQSliderView: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sdcell", for: indexPath) as? SliderCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath) as? SliderCell
+        
         cell?.textLabel.text = titles[indexPath.item]
         
         if currentIndex.item == indexPath.item {
